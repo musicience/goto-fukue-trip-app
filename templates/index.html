@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>五島福江島旅行判断アプリ</h1>
+
+<div class="date">
+    {{ date }} の朝の判断
+</div>
+
+<div class="trip-info">
+    <h3>旅行予定</h3>
+    <p><strong>日程:</strong> 3/15-3/17</p>
+    <p><strong>場所:</strong> 五島福江島</p>
+</div>
+
+<h2>五島福江島の天気予報 (3/15-3/17)</h2>
+<div class="weather-container">
+    {% for day, info in weather.items() %}
+    <div class="weather-card">
+        <h3>{{ day }}</h3>
+        <div class="weather-icon">{{ info.icon }}</div>
+        <div class="weather-condition">{{ info.condition }}</div>
+        <div>気温: {{ info.temperature }}</div>
+        <div>降水確率: {{ info.precipitation }}</div>
+        {% if info.source %}
+        <div class="weather-source">出典: {{ info.source }}</div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% if tasks %}
+<div class="tasks">
+    <h2>{{ date }}にやるべきこと</h2>
+    <ul>
+        {% for task in tasks %}
+        <li class="task-item">{{ task }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+<div class="decision-section">
+    <h2>今日の判断</h2>
+    <form method="post" class="decision-buttons">
+        <button type="submit" name="decision" value="go" class="btn btn-go">やっぱ行く</button>
+        <button type="submit" name="decision" value="wait" class="btn btn-wait">保留</button>
+    </form>
+</div>
+{% endblock %}
