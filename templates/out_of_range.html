@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>五島福江島旅行判断アプリ</h1>
+
+<div style="text-align: center; margin: 50px 0;">
+    <h2>このアプリは 3/11 から 3/14 の間のみ使用できます</h2>
+    
+    <div style="margin-top: 40px; padding: 20px; background-color: #ffebee; border-radius: 10px;">
+        <p>このアプリは、3/15-3/17の五島福江島旅行について、3/11から3/14の朝に判断するためのものです。</p>
+        <p>テスト用に日付を指定するには、URLに <code>?test_date=3/11</code> のようにパラメータを追加してください。</p>
+    </div>
+    
+    <div style="margin-top: 20px;">
+        <a href="/?test_date=3/11" style="display: inline-block; margin: 5px; padding: 10px 20px; background-color: #2196f3; color: white; text-decoration: none; border-radius: 5px;">3/11 として表示</a>
+        <a href="/?test_date=3/12" style="display: inline-block; margin: 5px; padding: 10px 20px; background-color: #2196f3; color: white; text-decoration: none; border-radius: 5px;">3/12 として表示</a>
+        <a href="/?test_date=3/13" style="display: inline-block; margin: 5px; padding: 10px 20px; background-color: #2196f3; color: white; text-decoration: none; border-radius: 5px;">3/13 として表示</a>
+        <a href="/?test_date=3/14" style="display: inline-block; margin: 5px; padding: 10px 20px; background-color: #2196f3; color: white; text-decoration: none; border-radius: 5px;">3/14 として表示</a>
+    </div>
+</div>
+{% endblock %}
