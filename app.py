@@ -48,12 +48,14 @@ def index():
             session['decision'] = 'go'
             return redirect(url_for('index'))
         elif decision == 'wait':
+            session['message'] = f"{formatted_date}の判断: 保留しました。また明日判断しましょう。"
             return redirect(url_for('index'))
     
     return render_template('index.html', 
                           date=formatted_date, 
                           weather=weather_data, 
-                          tasks=tasks)
+                          tasks=tasks,
+                          session=session)
 
 def get_weather_forecast():
     """
