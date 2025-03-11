@@ -42,6 +42,11 @@
 
 <div class="decision-section">
     <h2>今日の判断</h2>
+    {% if session.message %}
+    <div class="message-box">
+        {{ session.message }}
+    </div>
+    {% endif %}
     <form method="post" class="decision-buttons">
         <button type="submit" name="decision" value="go" class="btn btn-go">やっぱ行く</button>
         <button type="submit" name="decision" value="wait" class="btn btn-wait">保留</button>
